@@ -13,7 +13,7 @@ public class MemoryMemberRepository implements MemberRepository {
     @Override
     public Member save(Member member) {
         member.setId(++sequence);
-        // map에 id를 키로 member를 저장.
+        // map에 id를 키로 member를 저장
         store.put(member.getId(), member);
         return member;
     }
