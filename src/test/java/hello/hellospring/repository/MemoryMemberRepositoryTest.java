@@ -20,6 +20,7 @@ class MemoryMemberRepositoryTest {
     public void afterEach() {
         repository.clearStore();
     }
+
     //Test를 한다고 보면 됨.
     @Test
     public void save() {
@@ -54,7 +55,6 @@ class MemoryMemberRepositoryTest {
     }
 
     @Test
-
     public void findAll() {
         Member member1 = new Member();
         member1.setName("spring1");
