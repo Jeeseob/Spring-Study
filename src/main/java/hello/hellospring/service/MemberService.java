@@ -7,8 +7,16 @@ import hello.hellospring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+//TestCase만들때 cmd + shift + T 누른 후 test할 method들 선택하면 바로 만들어짐.
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+    private final MemberRepository memberRepository;
+    // cmd + N -> 아래처럼 외부에서 불러오도록 만들 수 있음.
+    // 아래 코드는 객체를 직접 만드는 것이 아니라 외부에서 넣어주는 것이라고 함.
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
     /**
      *  회원가입
      */
