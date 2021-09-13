@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.Optional;
 
 //TestCase만들때 cmd + shift + T 누른 후 test할 method들 선택하면 바로 만들어짐.
-@Service // 스프링이 올라올때, 컨테이너에 등록해줌.
+//@Service // 스프링이 올라올때, 컨테이너에 등록해줌.
 public class MemberService {
 
     private final MemberRepository memberRepository;
     // cmd + N -> 아래처럼 외부에서 불러오도록 만들 수 있음.
     // 아래 코드는 객체를 직접 만드는 것이 아니라 외부에서 넣어주는 것이라고 함.
-    @Autowired // Service와 Repository 연결.
+    //@Autowired // Service와 Repository 연결.
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
