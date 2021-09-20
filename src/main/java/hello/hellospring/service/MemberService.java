@@ -5,12 +5,15 @@ import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 //TestCase만들때 cmd + shift + T 누른 후 test할 method들 선택하면 바로 만들어짐.
 //@Service // 스프링이 올라올때, 컨테이너에 등록해줌.
+// JPA는 모든 Data변경이 Transactional 내에서 실행되야 함.
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
