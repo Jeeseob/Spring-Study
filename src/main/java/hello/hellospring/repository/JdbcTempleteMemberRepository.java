@@ -17,7 +17,7 @@ import java.util.Optional;
 
 public class JdbcTempleteMemberRepository implements MemberRepository{
 
-    private  final JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
     // Spring이 자동으로 인젝션 해줌
     @Autowired
     public JdbcTempleteMemberRepository(DataSource dataSource) {
