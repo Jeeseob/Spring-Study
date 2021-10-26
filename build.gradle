@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// DB사용을 위한 라이브러리
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc' // Jdbc 대신 JPA 사용.
+	runtimeOnly 'com.h2database:h2'
+	//JPA 사용을 위한 라이브러리
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+}
+
+test {
+	useJUnitPlatform()
+}
