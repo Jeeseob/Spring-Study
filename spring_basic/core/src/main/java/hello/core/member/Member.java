@@ -1,7 +1,8 @@
 package hello.core.member;
 
 public class Member {
-
+    // Database와 연동되다 보면, Null값이 들어갈 수도 있기 때문에 long이 아니라 Long 사용
+    // 일반적으로는 id값이라 그럴 일은 없을듯
     private Long id;
     private String name;
     private Grade grade;
