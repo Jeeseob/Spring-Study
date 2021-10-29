@@ -17,7 +17,8 @@ public class OrderApp {
 //        OrderService orderService = appConfig.orderService();
 
         // AppConfig의 환경설정 정보를 Spring Container에 저장해서 관리해줌.
-        //AplicationContext -> Spring Container
+        //ApplicationContext -> Spring Container
+        //ApplicationiContext는 interface형태로 당양한 방식으로 Spring Container를 만들 수 있다.
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
         OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
