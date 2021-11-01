@@ -28,6 +28,8 @@ public class MemberService {
      *  회원가입
      */
     public Long join(Member member) {
+
+
         //같은 이름이 있는지 확인
         // cmd + option + V
         // 들어갈 값(여기서는 memberRepository...)을 입력한 후 누르면, 앞에 return 되는 type 자동으로 적어줌.
