@@ -6,6 +6,8 @@ import hello.core.member.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SingletonTest {
 
@@ -40,5 +42,23 @@ public class SingletonTest {
     // same은 실제로 같은 데이터 인지
     // equal은 같은지,
 
+    // spring에서는 Bean 객체를 기본적으로 싱글톤 형태로 만들어줌.
 
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤")
+    void springContainer() {
+
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // 호출할 때 마다 객체를 생성하는 형태
+        MemberService memberService1 = ac.getBean("memberService",MemberService.class);
+        MemberService memberService2 = ac.getBean("memberService",MemberService.class);
+
+        // 실제로는 아래처럼 자동화 해야함.
+            System.out.println("memberService1 = " + memberService1);
+            System.out.println("memberService2 = " + memberService2);
+
+        // memberService1 != memberService2 인지 확인 하는 것
+            Assertions.assertThat(memberService1).isSameAs(memberService2);
+    }
 }
