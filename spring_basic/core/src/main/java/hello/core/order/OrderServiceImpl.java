@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
@@ -8,10 +9,11 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor // Lombok 적용
+// @RequiredArgsConstructor // Lombok 적용
 public class OrderServiceImpl implements OrderService{
 
     // 여기서 구현체만 변경하면, 다른 구현체도 사용 가능.
@@ -34,7 +36,7 @@ public class OrderServiceImpl implements OrderService{
 //
 //    @Autowired
 //    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
-//        this.discountPolicy = discountPolicy;
+//        this.discountPolicy = discoun≤tPolicy;
 //    }
 //    // 여기 까지 테스트
 
@@ -45,11 +47,12 @@ public class OrderServiceImpl implements OrderService{
 
 
     // 최적화
-    // @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+     @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+    //public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("rateDiscountPolicy")DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
