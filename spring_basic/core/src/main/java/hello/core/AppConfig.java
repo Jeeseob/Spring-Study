@@ -28,8 +28,7 @@ public class AppConfig {
     //생성자 주입(연결)
     @Bean
     public OrderService orderService() {
-        return new OrderServiceImpl(
-                memberRepository(), discountPolicy());
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
