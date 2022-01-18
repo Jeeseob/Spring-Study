@@ -47,7 +47,7 @@ public class OrderServiceImpl implements OrderService{
 
 
     // 최적화
-     @Autowired
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
     //public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("rateDiscountPolicy")DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;

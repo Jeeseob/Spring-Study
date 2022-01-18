@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component // 조회되는 빈이 2개인 경우 - 문제
-@Qualifier("fixDiscountPolicy")
 public class FixDiscountPolicy implements DiscountPolicy{
 
     private int discountFixAmount = 1000;
