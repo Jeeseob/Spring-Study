@@ -16,10 +16,16 @@ public class PtototypeTest {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
 
         PrototypeBean prototypeBean = ac.getBean(PrototypeBean.class);
+        System.out.println("find PtototypeBean");
         PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
+        System.out.println("find PtototypeBean1");
+
+        System.out.println("prototypeBean = " + prototypeBean);
+        System.out.println("prototypeBean1 = " + prototypeBean1);
 
         Assertions.assertThat(prototypeBean).isNotSameAs(prototypeBean1);
-
+        // 그때 그때 새로운 객체를 생성하기 때문에, 각 bean이 다른 것을 확인 할 수 있다.
+        // close가 호출되지 않는 것 또한 알 수 있다.
         ac.close();
     }
 
