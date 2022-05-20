@@ -24,6 +24,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// Provider 자바의 표준 라이브러리로, 새로운 프로토타입 빈을 생성하는데 사용한다.
 	implementation 'javax.inject:javax.inject:1'
 
