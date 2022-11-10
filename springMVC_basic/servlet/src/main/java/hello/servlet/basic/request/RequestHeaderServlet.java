@@ -20,6 +20,7 @@ public class RequestHeaderServlet extends HttpServlet {
         printStartLine(request);
         printHeaders(request);
         printHeaderUtils(request);
+        printEtc(request);
     }
 
     // Request 정보
@@ -56,8 +57,8 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println();
         System.out.println("[Accept-Language 편의 조회]");
         request.getLocales().asIterator()
-                .forEachRemaining(locale -> System.out.println("locale = " + locale));
-        System.out.println("request.getLocale() = " + request.getLocale());
+                .forEachRemaining(locale -> System.out.println("locale = " + locale));  // 웹 브라우저에서 accept하는 언어 정보(1,2 ... 순위)
+        System.out.println("request.getLocale() = " + request.getLocale()); // 가장 우선순위가 높은 언어 정보를 자동으로 가져온다.
         System.out.println();
         System.out.println("[cookie 편의 조회]"); if (request.getCookies() != null) {
             for (Cookie cookie : request.getCookies()) {
@@ -71,4 +72,20 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println("--- Header 편의 조회 end ---");
         System.out.println();
     }
+
+    private void printEtc(HttpServletRequest request) {
+        System.out.println("--- 기타 조회 start ---");
+        System.out.println("[Remote 정보]");
+        System.out.println("request.getRemoteHost() = " + request.getRemoteHost()); //
+        System.out.println("request.getRemoteAddr() = " + request.getRemoteAddr()); //
+        System.out.println("request.getRemotePort() = " + request.getRemotePort()); //
+        System.out.println();
+        System.out.println("[Local 정보]");
+        System.out.println("request.getLocalName() = " + request.getLocalName()); //
+        System.out.println("request.getLocalAddr() = " + request.getLocalAddr()); //
+        System.out.println("request.getLocalPort() = " + request.getLocalPort()); //
+        System.out.println("--- 기타 조회 end ---");
+        System.out.println();
+    }
+
 }
