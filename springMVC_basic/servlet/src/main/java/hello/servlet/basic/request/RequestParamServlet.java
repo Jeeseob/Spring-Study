@@ -35,8 +35,9 @@ public class RequestParamServlet extends HttpServlet {
 
         System.out.println();
 
-        System.out.println("[이름이 같은 복수 파라미터 조회]");
+        System.out.println("[이름이 같은 복수 파라미터 조회] - start");
         String[] usernames = request.getParameterValues("username");    // 데이터가 중복이 되는 경우 getParameterValues를 사용한다. 이때, getParameter를 사용하면, 첫번째 값을 반환한다.
         Arrays.stream(usernames).forEach(name -> System.out.println("username = " + name));
+        System.out.println("[이름이 같은 복수 파라미터 조회] - end");
     }
 }
