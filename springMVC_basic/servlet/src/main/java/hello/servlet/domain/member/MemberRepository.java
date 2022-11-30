@@ -13,7 +13,7 @@ import java.util.Map;
  * 실무에서는 ConcurrentHashMap, AtomicLong 등의 사용을 고려해야 한다.
  */
 public class MemberRepository {
-    private static Map<Long, Member> store = new HashMap<>();
+    private static final Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
 
     // 싱글톤 패턴 적용
@@ -38,7 +38,7 @@ public class MemberRepository {
         return new ArrayList<>(store.values());
     }
 
-    public void clearStroe() {
+    public void clearStore() {
         store.clear();
     }
 }
